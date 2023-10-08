@@ -15,7 +15,7 @@ public abstract class Componente {
     private ArrayList<String> sprites;
     private int vida, cantidadGolpes, nivel, campos, nivelAparicion;
 
-    Componente(String nombre, String tipoApariencia, ArrayList<String> sprites, int vida, int cantidadGolpes, int nivel, int campos, int nivelAparicion){
+    public Componente(String nombre, String tipoApariencia, ArrayList<String> sprites, int vida, int cantidadGolpes, int nivel, int campos, int nivelAparicion){
         this.nombre = nombre;
         this.tipoApariencia = tipoApariencia;
         this.sprites = sprites;
