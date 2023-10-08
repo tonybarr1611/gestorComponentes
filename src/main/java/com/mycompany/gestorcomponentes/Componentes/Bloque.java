@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class Bloque extends Componente implements Serializable {
     
-    Bloque(String nombre, String tipoApariencia, ArrayList<String> sprites, int vida, int cantidadGolpes, int nivel, int campos, int nivelAparicion){
+    public Bloque(String nombre, String tipoApariencia, ArrayList<String> sprites, int vida, int cantidadGolpes, int nivel, int campos, int nivelAparicion){
         super(nombre, tipoApariencia, sprites, vida, cantidadGolpes, nivel, campos, nivelAparicion);
     }
 }
