@@ -4,14 +4,74 @@
  */
 package com.mycompany.gestorcomponentes;
 
+import java.io.File;
+import java.util.ArrayList;
+
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.xml.stream.events.EntityReference;
+
+import com.mycompany.gestorcomponentes.Componentes.DeContacto;
+import com.mycompany.gestorcomponentes.Componentes.Defensa.DefensaAerea;
+import com.mycompany.gestorcomponentes.Componentes.Defensa.DefensaAtaqueMultiple;
+import com.mycompany.gestorcomponentes.Componentes.Defensa.DefensaBloque;
+import com.mycompany.gestorcomponentes.Componentes.Defensa.DefensaDeContacto;
+import com.mycompany.gestorcomponentes.Componentes.Defensa.DefensaImpacto;
+import com.mycompany.gestorcomponentes.Componentes.Defensa.DefensaMedianoAlcance;
+import com.mycompany.gestorcomponentes.Componentes.Zombies.ZombieAereo;
+import com.mycompany.gestorcomponentes.Componentes.Zombies.ZombieChoque;
+import com.mycompany.gestorcomponentes.Componentes.Zombies.ZombieDeContacto;
+import com.mycompany.gestorcomponentes.Componentes.Zombies.ZombieMedianoAlcance;
 
 /**
  *
  * @author barra
  */
+
+enum TipoZombies{
+    DE_CONTACTO (ZombieDeContacto.class),
+    MEDIANO_ALCANCE (ZombieMedianoAlcance.class),
+    AEREO (ZombieAereo.class),
+    CHOQUE_IMPACTO (ZombieChoque.class);
+
+    TipoZombies(){
+    }
+
+    TipoZombies(Class<? extends Componente> clase){
+        this.clase = clase;
+    }
+
+    private Class<? extends Componente> clase;
+
+    public Class<? extends Componente> getClase(){
+        return clase;
+    }
+}
+
+enum TipoDefensas{
+    DE_CONTACTO (DefensaDeContacto.class),
+    MEDIANO_ALCANCE (DefensaMedianoAlcance.class),
+    AEREO (DefensaAerea.class),
+    CHOQUE_IMPACTO (DefensaImpacto.class),
+    ATAQUE_MULTIPLE (DefensaAtaqueMultiple.class),
+    BLOQUES (DefensaBloque.class);
+
+    TipoDefensas(){
+    }
+
+    TipoDefensas(Class<? extends Componente> clase){
+        this.clase = clase;
+    }
+
+    private Class<? extends Componente> clase;
+
+    public Class<? extends Componente> getClase(){
+        return clase;
+    }
+}
+
 public class VentanaPrincipal extends javax.swing.JFrame {
 
     /**
@@ -353,6 +413,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnCargarArchivo.getAccessibleContext().setAccessibleDescription("");
 
         btnGuardarComponente.setText("Guardar Componente");
+        btnGuardarComponente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarComponenteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -487,6 +552,91 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 txf.setText("");
     }
 
+    private Class<? extends Componente> getTipoComponente(){
+        if (rbtDefensa.isSelected()){
+            if (rbtOpcion1.isSelected())
+                return TipoDefensas.DE_CONTACTO.getClase();
+            else if (rbtOpcion2.isSelected())
+                return TipoDefensas.MEDIANO_ALCANCE.getClase();
+            else if (rbtOpcion3.isSelected())
+                return TipoDefensas.AEREO.getClase();
+            else if (rbtOpcion4.isSelected())
+                return TipoDefensas.CHOQUE_IMPACTO.getClase();
+            else if (rbtOpcion5.isSelected())
+                return TipoDefensas.ATAQUE_MULTIPLE.getClase();
+            else if (rbtOpcion6.isSelected())
+                return TipoDefensas.BLOQUES.getClase();
+            return null;
+        }else if (rbtZombie.isSelected()){
+            if (rbtOpcion1.isSelected())
+                return TipoZombies.DE_CONTACTO.getClase();
+            else if (rbtOpcion2.isSelected())
+                return TipoZombies.MEDIANO_ALCANCE.getClase();
+            else if (rbtOpcion3.isSelected())
+                return TipoZombies.AEREO.getClase();
+            else if (rbtOpcion4.isSelected())
+                return TipoZombies.CHOQUE_IMPACTO.getClase();
+            return null;
+        }
+        return null;
+    }
+
+    private boolean verifyFields(){
+        if (txfNombreComponente.getText().trim().length() == 0){
+            JOptionPane.showMessageDialog(this, "El nombre del componente no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }else if (txfVida.getText().trim().length() == 0){
+            JOptionPane.showMessageDialog(this, "La vida del componente no puede estar vacía", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }else if (lblSelected.getText().trim().length() == 0){
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un archivo", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }else if (txfGolpes.getText().trim().length() == 0){
+            JOptionPane.showMessageDialog(this, "Los golpes por unidad de tiempo no pueden estar vacíos", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }else if (txfNivel.getText().trim().length() == 0){
+            JOptionPane.showMessageDialog(this, "El nivel no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }else if (txfCampos.getText().trim().length() == 0){
+            JOptionPane.showMessageDialog(this, "Los campos no pueden estar vacíos", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }else if (txfNivelAparicion.getText().trim().length() == 0){
+            JOptionPane.showMessageDialog(this, "El nivel de aparición no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }else if (txfAlcance.isEnabled() && txfAlcance.getText().trim().length() == 0){
+            JOptionPane.showMessageDialog(this, "El alcance no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        return true;
+    }
+
+    private boolean verifyName(String path, String Nombre){
+        File dir = new File(path);
+        File[] files = dir.listFiles();
+        Nombre = Nombre + ".json";
+        for (File file : files) {
+            if (file.getName().equals(Nombre)){
+                JOptionPane.showMessageDialog(this, "Ya existe un componente con ese nombre", "Error", JOptionPane.ERROR_MESSAGE);
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private void wipeEntries(){
+        txfNombreComponente.setText("");
+        txfVida.setText("");
+        txfGolpes.setText("");
+        txfNivel.setText("");
+        txfCampos.setText("");
+        txfNivelAparicion.setText("");
+        txfAlcance.setText("");
+        lblSelected.setText("");
+        rbtOpcion1.setSelected(true);
+        rbtDefensa.setSelected(true);
+        rbtGif.setSelected(true);
+    }
+
     private void rbtSpritesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtSpritesActionPerformed
         fchRecursos.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         deleteAllFilters();    
@@ -553,6 +703,77 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void rbtOpcion6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtOpcion6ActionPerformed
         unableNonRange();
     }//GEN-LAST:event_rbtOpcion6ActionPerformed
+
+    private void btnGuardarComponenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarComponenteActionPerformed
+        // Se verifica que todos los campos estén llenos
+        if (!verifyFields())
+            return;
+        // Se crea un "puntero" a la clase del componente
+        Class<? extends Componente> tipoComponente = getTipoComponente();
+        Componente componente;
+        String Nombre = txfNombreComponente.getText().trim();
+        String tipoApariencia = rbtGif.isSelected() ? "GIF" : "SPRITES";
+        ArrayList<String> sprites;
+
+        // Se verifica que no exista un componente con el mismo nombre
+        String currentDir = System.getProperty("user.dir");
+        if (!verifyName(currentDir + "/Componentes", Nombre)){
+            return;
+        }
+
+        // Si el tipo de apariencia es GIF, se crea un ArrayList con el path del archivo seleccionado
+        if (tipoApariencia == "GIF"){
+            sprites = new ArrayList<>();
+            sprites.add(lblSelected.getText().trim());
+        }else{
+            // Si el tipo de apariencia es SPRITES, se crea un ArrayList con los paths de las imágenes en el directorio seleccionado
+            sprites = new ArrayList<>();
+            File dir = new File(lblSelected.getText().trim());
+            for (File file : dir.listFiles()) {
+                if (file.getName().endsWith(".png") || file.getName().endsWith(".jpg") || file.getName().endsWith(".jpeg"))
+                    sprites.add(file.getAbsolutePath());
+            }
+            if (sprites.size() < 2){
+                JOptionPane.showMessageDialog(this, "No se encontraron imágenes o se encontraron menos de las necesarias en el directorio seleccionado", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        }
+        // Se crean las variables necesarias para crear el componente
+        int vida = Integer.parseInt(txfVida.getText().trim());
+        int cantidadGolpes = Integer.parseInt(txfGolpes.getText().trim());
+        int nivel = Integer.parseInt(txfNivel.getText().trim());
+        int campos = Integer.parseInt(txfCampos.getText().trim());
+        int nivelAparicion = Integer.parseInt(txfNivelAparicion.getText().trim());
+        // Si se necesita un alcance, se crea el componente con el constructor que lo necesita
+        if (txfAlcance.isEnabled()){
+            int alcance = Integer.parseInt(txfAlcance.getText().trim());
+            try{
+                // Se crea el componente con el constructor correspondiente
+                componente = tipoComponente.getDeclaredConstructor(String.class, String.class, ArrayList.class, int.class, int.class, int.class, int.class, int.class, int.class).newInstance(Nombre, tipoApariencia, sprites, vida, cantidadGolpes, nivel, campos, nivelAparicion, alcance);
+                JOptionPane.showMessageDialog(this, "Componente creado exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+                JOptionPane.showMessageDialog(this, "Error al crear el componente", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        }else{
+            try{
+                // Se crea el componente con el constructor correspondiente
+                componente = tipoComponente.getDeclaredConstructor(String.class, String.class, ArrayList.class, int.class, int.class, int.class, int.class, int.class).newInstance(Nombre, tipoApariencia, sprites, vida, cantidadGolpes, nivel, campos, nivelAparicion);
+                JOptionPane.showMessageDialog(this, "Componente creado exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+                JOptionPane.showMessageDialog(this, "Error al crear el componente", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        }
+        // Se crea el archivo JSON con el componente
+        EntitySerializer.writeObject(componente, currentDir + "/Componentes/" + componente.getNombre() + ".json");
+        wipeEntries();
+
+
+        
+    }//GEN-LAST:event_btnGuardarComponenteActionPerformed
 
     private void txfNivelKeyReleased(java.awt.event.KeyEvent evt) {                                      
         txfCheckInts(txfNivel);
