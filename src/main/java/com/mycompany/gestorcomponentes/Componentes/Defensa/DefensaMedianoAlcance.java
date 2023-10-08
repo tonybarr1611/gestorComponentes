@@ -14,7 +14,7 @@ import com.mycompany.gestorcomponentes.Componentes.MedianoAlcance;
  */
 public class DefensaMedianoAlcance extends MedianoAlcance {
     
-    public DefensaMedianoAlcance(String nombre, String tipoApariencia, ArrayList<String> sprites, int vida, int cantidadGolpes, int nivel, int campos, int nivelAparicion){
-        super(nombre, tipoApariencia, sprites, vida, cantidadGolpes, nivel, campos, nivelAparicion);
+    public DefensaMedianoAlcance(String nombre, String tipoApariencia, ArrayList<String> sprites, int vida, int cantidadGolpes, int nivel, int campos, int nivelAparicion, int alcance){
+        super(nombre, tipoApariencia, sprites, vida, cantidadGolpes, nivel, campos, nivelAparicion, alcance);
     }
 }

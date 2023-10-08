@@ -13,8 +13,10 @@ import java.util.ArrayList;
  * @author barra
  */
 public class ChoqueImpacto extends Componente{
+    int rango;
     
-    public ChoqueImpacto(String nombre, String tipoApariencia, ArrayList<String> sprites, int vida, int cantidadGolpes, int nivel, int campos, int nivelAparicion){
+    public ChoqueImpacto(String nombre, String tipoApariencia, ArrayList<String> sprites, int vida, int cantidadGolpes, int nivel, int campos, int nivelAparicion, int rango){
         super(nombre, tipoApariencia, sprites, vida, cantidadGolpes, nivel, campos, nivelAparicion);
+        this.rango = rango;
     }
 }

@@ -14,7 +14,7 @@ import com.mycompany.gestorcomponentes.Componentes.ChoqueImpacto;
  */
 public class DefensaImpacto extends ChoqueImpacto {
     
-    public DefensaImpacto(String nombre, String tipoApariencia, ArrayList<String> sprites, int vida, int cantidadGolpes, int nivel, int campos, int nivelAparicion){
-        super(nombre, tipoApariencia, sprites, vida, cantidadGolpes, nivel, campos, nivelAparicion);
+    public DefensaImpacto(String nombre, String tipoApariencia, ArrayList<String> sprites, int vida, int cantidadGolpes, int nivel, int campos, int nivelAparicion, int rango){
+        super(nombre, tipoApariencia, sprites, vida, cantidadGolpes, nivel, campos, nivelAparicion, rango);
     }
 }

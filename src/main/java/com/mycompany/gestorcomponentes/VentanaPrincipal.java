@@ -65,6 +65,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         txfCampos = new javax.swing.JTextField();
         lblNivelAparicion = new javax.swing.JLabel();
         txfNivelAparicion = new javax.swing.JTextField();
+        lblAlcance = new javax.swing.JLabel();
+        txfAlcance = new javax.swing.JTextField();
         btnGuardarComponente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -112,21 +114,51 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         rbtTipo.add(rbtOpcion1);
         rbtOpcion1.setSelected(true);
         rbtOpcion1.setText("De contacto");
+        rbtOpcion1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtOpcion1ActionPerformed(evt);
+            }
+        });
 
         rbtTipo.add(rbtOpcion2);
         rbtOpcion2.setText("Mediano Alcance");
+        rbtOpcion2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtOpcion2ActionPerformed(evt);
+            }
+        });
 
         rbtTipo.add(rbtOpcion3);
         rbtOpcion3.setText("Aéreo");
+        rbtOpcion3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtOpcion3ActionPerformed(evt);
+            }
+        });
 
         rbtTipo.add(rbtOpcion4);
         rbtOpcion4.setText("Choque/Impacto");
+        rbtOpcion4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtOpcion4ActionPerformed(evt);
+            }
+        });
 
         rbtTipo.add(rbtOpcion5);
         rbtOpcion5.setText("Ataque múltiple");
+        rbtOpcion5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtOpcion5ActionPerformed(evt);
+            }
+        });
 
         rbtTipo.add(rbtOpcion6);
         rbtOpcion6.setText("Bloques");
+        rbtOpcion6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtOpcion6ActionPerformed(evt);
+            }
+        });
 
         lblClasificacionComponente.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblClasificacionComponente.setText("Clasificación del componente:");
@@ -220,6 +252,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        lblAlcance.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblAlcance.setText("Alcance:");
+
+        txfAlcance.setEnabled(false);
+        txfAlcance.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txfAlcanceKeyReleased(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -262,7 +304,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                             .addComponent(lblNivelAparicion, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(txfNivelAparicion, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(txfNivelAparicion, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(lblAlcance, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(txfAlcance, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGap(0, 0, Short.MAX_VALUE))))))
                 .addGap(19, 19, 19))
         );
@@ -297,7 +343,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNivelAparicion)
                     .addComponent(txfNivelAparicion, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAlcance)
+                    .addComponent(txfAlcance, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         btnCargarArchivo.getAccessibleContext().setAccessibleDescription("");
@@ -346,9 +396,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(261, 261, 261)
+                .addGap(245, 245, 245)
                 .addComponent(btnGuardarComponente, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -381,16 +431,41 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                         .addComponent(rbtOpcion4)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(btnGuardarComponente)
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addGap(36, 36, 36))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    private void deleteAllFilters(){
+        FileFilter filtros[] = fchRecursos.getChoosableFileFilters();
+        for (FileFilter filtro : filtros) {
+            fchRecursos.removeChoosableFileFilter(filtro);
+        }
+    }
+    
+    private boolean isNumeric(String str){
+        try{
+            Double.parseDouble(str);
+        }catch (Exception e){
+            return false;
+        }
+        return true;
+    }
+
+    private void unableNonRange(){
+        txfAlcance.setEnabled(false);
+        txfAlcance.setText("");
+    }
+
+    private void enableRange(){
+        txfAlcance.setEnabled(true);
+    }
+    
     private void rbtZombieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtZombieActionPerformed
-        // TODO add your handling code here:
         if (rbtOpcion5.isSelected() || rbtOpcion6.isSelected()){
             rbtOpcion5.setSelected(false);
             rbtOpcion6.setSelected(false);
@@ -400,22 +475,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         rbtOpcion6.setEnabled(false);
         
     }//GEN-LAST:event_rbtZombieActionPerformed
-
-    private void deleteAllFilters(){
-        FileFilter filtros[] = fchRecursos.getChoosableFileFilters();
-        for (FileFilter filtro : filtros) {
-            fchRecursos.removeChoosableFileFilter(filtro);
-        }
-    }
-
-    private boolean isNumeric(String str){
-        try{
-            double numero = Double.parseDouble(str);
-        }catch (Exception e){
-            return false;
-        }
-        return true;
-    }
 
     private void txfCheckInts(javax.swing.JTextField txf){
         String txfText = txf.getText().trim();
@@ -467,6 +526,34 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         txfCheckInts(txfNivelAparicion);
     }//GEN-LAST:event_txfNivelAparicionKeyReleased
 
+    private void txfAlcanceKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfAlcanceKeyReleased
+        txfCheckInts(txfAlcance);
+    }//GEN-LAST:event_txfAlcanceKeyReleased
+
+    private void rbtOpcion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtOpcion2ActionPerformed
+        enableRange();
+    }//GEN-LAST:event_rbtOpcion2ActionPerformed
+
+    private void rbtOpcion4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtOpcion4ActionPerformed
+        enableRange();
+    }//GEN-LAST:event_rbtOpcion4ActionPerformed
+
+    private void rbtOpcion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtOpcion1ActionPerformed
+        unableNonRange();
+    }//GEN-LAST:event_rbtOpcion1ActionPerformed
+
+    private void rbtOpcion3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtOpcion3ActionPerformed
+        unableNonRange();
+    }//GEN-LAST:event_rbtOpcion3ActionPerformed
+
+    private void rbtOpcion5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtOpcion5ActionPerformed
+        unableNonRange();
+    }//GEN-LAST:event_rbtOpcion5ActionPerformed
+
+    private void rbtOpcion6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtOpcion6ActionPerformed
+        unableNonRange();
+    }//GEN-LAST:event_rbtOpcion6ActionPerformed
+
     private void txfNivelKeyReleased(java.awt.event.KeyEvent evt) {                                      
         txfCheckInts(txfNivel);
     }                                    
@@ -515,6 +602,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnGuardarComponente;
     private javax.swing.JFileChooser fchRecursos;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblAlcance;
     private javax.swing.JLabel lblCampos;
     private javax.swing.JLabel lblClasificacionComponente;
     private javax.swing.JLabel lblDevelopers;
@@ -541,6 +629,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.ButtonGroup rbtTipo;
     private javax.swing.ButtonGroup rbtTipoRecursos;
     private javax.swing.JRadioButton rbtZombie;
+    private javax.swing.JTextField txfAlcance;
     private javax.swing.JTextField txfCampos;
     private javax.swing.JTextField txfGolpes;
     private javax.swing.JTextField txfNivel;
