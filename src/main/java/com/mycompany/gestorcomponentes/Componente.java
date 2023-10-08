@@ -4,13 +4,14 @@
  */
 package com.mycompany.gestorcomponentes;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author barra
  */
-public abstract class Componente {
+public abstract class Componente implements Serializable{
     private String nombre, tipoApariencia;
     private ArrayList<String> sprites;
     private int vida, cantidadGolpes, nivel, campos, nivelAparicion;

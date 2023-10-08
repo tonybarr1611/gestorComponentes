@@ -6,17 +6,16 @@ package com.mycompany.gestorcomponentes.Componentes.Zombies;
 
 import com.mycompany.gestorcomponentes.Componentes.Aereo;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author barra
  */
-public class ZombieAereo extends Aereo implements Serializable {
+public class ZombieAereo extends Aereo{
 
     public ZombieAereo(String nombre, String tipoApariencia, ArrayList<String> sprites, int vida, int cantidadGolpes, int nivel, int campos, int nivelAparicion){
         super(nombre, tipoApariencia, sprites, vida, cantidadGolpes, nivel, campos, nivelAparicion);
     }
-    
+
 }

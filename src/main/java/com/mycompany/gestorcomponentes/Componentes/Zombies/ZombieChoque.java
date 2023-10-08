@@ -6,14 +6,13 @@ package com.mycompany.gestorcomponentes.Componentes.Zombies;
 
 import com.mycompany.gestorcomponentes.Componentes.ChoqueImpacto;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author barra
  */
-public class ZombieChoque extends ChoqueImpacto implements Serializable {
+public class ZombieChoque extends ChoqueImpacto{
     
     public ZombieChoque(String nombre, String tipoApariencia, ArrayList<String> sprites, int vida, int cantidadGolpes, int nivel, int campos, int nivelAparicion){
         super(nombre, tipoApariencia, sprites, vida, cantidadGolpes, nivel, campos, nivelAparicion);

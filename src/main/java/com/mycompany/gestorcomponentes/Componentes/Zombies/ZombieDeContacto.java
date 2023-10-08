@@ -6,16 +6,15 @@ package com.mycompany.gestorcomponentes.Componentes.Zombies;
 
 import com.mycompany.gestorcomponentes.Componentes.DeContacto;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author barra
  */
-public class ZombieDeContacto extends DeContacto implements Serializable {
+public class ZombieDeContacto extends DeContacto{
     
-    public ZombieDeContacto(String nombre, String tipoApariencia, ArrayList<String> sprites, int vida, int cantidadGolpes, int nivel, int campos, int nivelAparicion) {
+    public ZombieDeContacto(String nombre, String tipoApariencia, ArrayList<String> sprites, int vida, int cantidadGolpes, int nivel, int campos, int nivelAparicion){
         super(nombre, tipoApariencia, sprites, vida, cantidadGolpes, nivel, campos, nivelAparicion);
     }
 }

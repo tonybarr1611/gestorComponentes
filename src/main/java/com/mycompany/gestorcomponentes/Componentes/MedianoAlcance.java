@@ -6,14 +6,13 @@ package com.mycompany.gestorcomponentes.Componentes;
 
 import com.mycompany.gestorcomponentes.Componente;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author barra
  */
-public class MedianoAlcance extends Componente implements Serializable {
+public class MedianoAlcance extends Componente{
     
     public MedianoAlcance(String nombre, String tipoApariencia, ArrayList<String> sprites, int vida, int cantidadGolpes, int nivel, int campos, int nivelAparicion){
         super(nombre, tipoApariencia, sprites, vida, cantidadGolpes, nivel, campos, nivelAparicion);

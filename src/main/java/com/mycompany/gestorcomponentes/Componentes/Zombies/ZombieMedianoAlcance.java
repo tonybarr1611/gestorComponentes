@@ -6,14 +6,13 @@ package com.mycompany.gestorcomponentes.Componentes.Zombies;
 
 import com.mycompany.gestorcomponentes.Componentes.MedianoAlcance;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author barra
  */
-public class ZombieMedianoAlcance extends MedianoAlcance implements Serializable {
+public class ZombieMedianoAlcance extends MedianoAlcance{
     
     public ZombieMedianoAlcance(String nombre, String tipoApariencia, ArrayList<String> sprites, int vida, int cantidadGolpes, int nivel, int campos, int nivelAparicion){
         super(nombre, tipoApariencia, sprites, vida, cantidadGolpes, nivel, campos, nivelAparicion);
