@@ -8,6 +8,8 @@
     </Component>
     <Component class="javax.swing.ButtonGroup" name="rbtTipoRecursos">
     </Component>
+    <Component class="javax.swing.JFileChooser" name="fchRecursos">
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -37,49 +39,52 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jPanel1" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="rbtOpcion2" min="-2" max="-2" attributes="0"/>
-                          <Component id="rbtOpcion1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="182" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="rbtOpcion3" min="-2" max="-2" attributes="0"/>
-                          <Component id="rbtOpcion4" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="rbtOpcion6" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="rbtOpcion5" alignment="1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jPanel1" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="lblNombreComponente" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="txfNombreComponente" min="-2" pref="445" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="lblTipoComponente" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="lblNombreComponente" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="txfNombreComponente" min="-2" pref="445" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="lblTipoComponente" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblClasificacionComponente" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblClasificacionComponente" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="rbtOpcion2" min="-2" max="-2" attributes="0"/>
+                                          <Component id="rbtOpcion1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="rbtOpcion4" min="-2" max="-2" attributes="0"/>
+                                          <Component id="rbtOpcion3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="rbtOpcion5" min="-2" max="-2" attributes="0"/>
+                                          <Component id="rbtOpcion6" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
                                       <Component id="rbtDefensa" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
                                       <Component id="rbtZombie" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="261" max="-2" attributes="0"/>
@@ -106,20 +111,23 @@
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Component id="lblTipoComponente" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                      <Component id="rbtOpcion1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="rbtOpcion3" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="rbtOpcion1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="rbtOpcion5" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="rbtOpcion2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="rbtOpcion6" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <Component id="rbtOpcion5" alignment="0" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                      <Component id="rbtOpcion2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="rbtOpcion4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="rbtOpcion3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="rbtOpcion4" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="rbtOpcion6" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
@@ -213,7 +221,7 @@
           <ComponentRef name="rbtTipo"/>
         </Property>
         <Property name="selected" type="boolean" value="true"/>
-        <Property name="text" type="java.lang.String" value="Opcion1"/>
+        <Property name="text" type="java.lang.String" value="De contacto"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="rbtOpcion2">
@@ -221,7 +229,7 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="rbtTipo"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Opcion2"/>
+        <Property name="text" type="java.lang.String" value="Mediano Alcance"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="rbtOpcion3">
@@ -229,7 +237,7 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="rbtTipo"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Opcion3"/>
+        <Property name="text" type="java.lang.String" value="A&#xe9;reo"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="rbtOpcion4">
@@ -237,7 +245,7 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="rbtTipo"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Opcion4"/>
+        <Property name="text" type="java.lang.String" value="Choque/Impacto"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="rbtOpcion5">
@@ -245,7 +253,7 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="rbtTipo"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Opcion5"/>
+        <Property name="text" type="java.lang.String" value="Ataque m&#xfa;ltiple"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="rbtOpcion6">
@@ -253,7 +261,7 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="rbtTipo"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Opcion6"/>
+        <Property name="text" type="java.lang.String" value="Bloques"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblClasificacionComponente">
@@ -272,6 +280,9 @@
         <Property name="selected" type="boolean" value="true"/>
         <Property name="text" type="java.lang.String" value="Defensa"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbtDefensaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="rbtZombie">
       <Properties>
@@ -289,78 +300,77 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                          <Component id="jLabel1" alignment="1" min="-2" pref="197" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="279" max="-2" attributes="0"/>
-                              <Component id="rbtGif" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
-                              <Component id="rbtSprites" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
-                              <Component id="btnCargarArchivo" min="-2" max="-2" attributes="0"/>
-                          </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lblSelected" min="-2" pref="410" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblGolpes" min="-2" pref="250" max="-2" attributes="0"/>
-                                      <Component id="lblVida" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txfGolpes" min="-2" pref="410" max="-2" attributes="0"/>
-                                      <Component id="txfVida" min="-2" pref="410" max="-2" attributes="0"/>
-                                  </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblImagenesTipo1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="127" max="-2" attributes="0"/>
+                                  <Component id="rbtGif" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
+                                  <Component id="rbtSprites" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
+                                  <Component id="btnCargarArchivo" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="lblCampos" min="-2" pref="250" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="txfCampos" min="-2" pref="410" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblGolpes" min="-2" pref="250" max="-2" attributes="0"/>
+                                          <Component id="lblVida" max="32767" attributes="0"/>
                                       </Group>
-                                      <Group type="102" attributes="0">
-                                          <Component id="lblNivel" min="-2" pref="250" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="txfNivel" min="-2" pref="410" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="lblNivelAparicion" min="-2" pref="250" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="txfNivelAparicion" min="-2" pref="410" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="txfGolpes" min="-2" pref="410" max="-2" attributes="0"/>
+                                          <Component id="txfVida" min="-2" pref="410" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="lblCampos" min="-2" pref="250" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="txfCampos" min="-2" pref="410" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="lblNivel" min="-2" pref="250" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="txfNivel" min="-2" pref="410" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="lblNivelAparicion" min="-2" pref="250" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="txfNivelAparicion" min="-2" pref="410" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               </Group>
-              <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                      <Component id="lblImagenesTipo1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="557" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="rbtGif" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="rbtSprites" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnCargarArchivo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblImagenesTipo1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                  <Component id="lblSelected" min="-2" pref="16" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblVida" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txfVida" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
@@ -387,13 +397,6 @@
                   </Group>
                   <EmptySpace pref="14" max="32767" attributes="0"/>
               </Group>
-              <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="lblImagenesTipo1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="209" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -405,6 +408,9 @@
           <AccessibilityProperties>
             <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
           </AccessibilityProperties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCargarArchivoActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblVida">
           <Properties>
@@ -437,10 +443,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbtSpritesActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Ser&#xe1; invisible y despliega el path o carpeta"/>
-          </Properties>
+        <Component class="javax.swing.JLabel" name="lblSelected">
         </Component>
         <Component class="javax.swing.JLabel" name="lblImagenesTipo1">
           <Properties>
@@ -451,9 +454,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txfVida">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="0"/>
-          </Properties>
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txfVidaKeyReleased"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblGolpes">
           <Properties>
@@ -464,9 +467,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txfGolpes">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="0"/>
-          </Properties>
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txfGolpesKeyReleased"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblNivel">
           <Properties>
@@ -477,9 +480,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txfNivel">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="0"/>
-          </Properties>
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txfNivelKeyReleased"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblCampos">
           <Properties>
@@ -490,9 +493,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txfCampos">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="0"/>
-          </Properties>
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txfCamposKeyReleased"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblNivelAparicion">
           <Properties>
@@ -503,9 +506,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txfNivelAparicion">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="0"/>
-          </Properties>
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txfNivelAparicionKeyReleased"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

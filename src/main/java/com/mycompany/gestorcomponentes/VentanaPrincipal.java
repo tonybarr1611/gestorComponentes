@@ -4,6 +4,10 @@
  */
 package com.mycompany.gestorcomponentes;
 
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 /**
  *
  * @author barra
@@ -29,6 +33,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         rbtTipo = new javax.swing.ButtonGroup();
         rbtClasificación = new javax.swing.ButtonGroup();
         rbtTipoRecursos = new javax.swing.ButtonGroup();
+        fchRecursos = new javax.swing.JFileChooser();
         pnlHeader = new javax.swing.JPanel();
         lblTitulo = new javax.swing.JLabel();
         lblDevelopers = new javax.swing.JLabel();
@@ -49,7 +54,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         lblVida = new javax.swing.JLabel();
         rbtGif = new javax.swing.JRadioButton();
         rbtSprites = new javax.swing.JRadioButton();
-        jLabel1 = new javax.swing.JLabel();
+        lblSelected = new javax.swing.JLabel();
         lblImagenesTipo1 = new javax.swing.JLabel();
         txfVida = new javax.swing.JTextField();
         lblGolpes = new javax.swing.JLabel();
@@ -106,22 +111,22 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         rbtTipo.add(rbtOpcion1);
         rbtOpcion1.setSelected(true);
-        rbtOpcion1.setText("Opcion1");
+        rbtOpcion1.setText("De contacto");
 
         rbtTipo.add(rbtOpcion2);
-        rbtOpcion2.setText("Opcion2");
+        rbtOpcion2.setText("Mediano Alcance");
 
         rbtTipo.add(rbtOpcion3);
-        rbtOpcion3.setText("Opcion3");
+        rbtOpcion3.setText("Aéreo");
 
         rbtTipo.add(rbtOpcion4);
-        rbtOpcion4.setText("Opcion4");
+        rbtOpcion4.setText("Choque/Impacto");
 
         rbtTipo.add(rbtOpcion5);
-        rbtOpcion5.setText("Opcion5");
+        rbtOpcion5.setText("Ataque múltiple");
 
         rbtTipo.add(rbtOpcion6);
-        rbtOpcion6.setText("Opcion6");
+        rbtOpcion6.setText("Bloques");
 
         lblClasificacionComponente.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblClasificacionComponente.setText("Clasificación del componente:");
@@ -129,6 +134,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         rbtClasificación.add(rbtDefensa);
         rbtDefensa.setSelected(true);
         rbtDefensa.setText("Defensa");
+        rbtDefensa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtDefensaActionPerformed(evt);
+            }
+        });
 
         rbtClasificación.add(rbtZombie);
         rbtZombie.setText("Zombie");
@@ -139,6 +149,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
 
         btnCargarArchivo.setText("Cargar archivo");
+        btnCargarArchivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCargarArchivoActionPerformed(evt);
+            }
+        });
 
         lblVida.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblVida.setText("Vida:");
@@ -160,91 +175,109 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Será invisible y despliega el path o carpeta");
-
         lblImagenesTipo1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblImagenesTipo1.setText("Tipo de recursos:");
 
-        txfVida.setText("0");
+        txfVida.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txfVidaKeyReleased(evt);
+            }
+        });
 
         lblGolpes.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblGolpes.setText("Golpes por unidad de tiempo:");
 
-        txfGolpes.setText("0");
+        txfGolpes.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txfGolpesKeyReleased(evt);
+            }
+        });
 
         lblNivel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblNivel.setText("Nivel:");
 
-        txfNivel.setText("0");
+        txfNivel.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txfNivelKeyReleased(evt);
+            }
+        });
 
         lblCampos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblCampos.setText("Campos");
 
-        txfCampos.setText("0");
+        txfCampos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txfCamposKeyReleased(evt);
+            }
+        });
 
         lblNivelAparicion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblNivelAparicion.setText("Nivel de aparición:");
 
-        txfNivelAparicion.setText("0");
+        txfNivelAparicion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txfNivelAparicionKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                            .addGap(279, 279, 279)
-                            .addComponent(rbtGif)
-                            .addGap(111, 111, 111)
-                            .addComponent(rbtSprites)
-                            .addGap(86, 86, 86)
-                            .addComponent(btnCargarArchivo)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblSelected, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(17, 17, 17)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblGolpes, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblVida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txfGolpes, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txfVida, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(lblCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txfCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(lblNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txfNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(lblNivelAparicion, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txfNivelAparicion, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addComponent(lblImagenesTipo1)
+                                .addGap(127, 127, 127)
+                                .addComponent(rbtGif)
+                                .addGap(111, 111, 111)
+                                .addComponent(rbtSprites)
+                                .addGap(86, 86, 86)
+                                .addComponent(btnCargarArchivo))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblGolpes, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblVida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txfGolpes, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txfVida, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(lblCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(txfCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(lblNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(txfNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(lblNivelAparicion, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(txfNivelAparicion, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGap(0, 0, Short.MAX_VALUE))))))
                 .addGap(19, 19, 19))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(16, 16, 16)
-                    .addComponent(lblImagenesTipo1)
-                    .addContainerGap(557, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(7, 7, 7)
+                .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbtGif)
                     .addComponent(rbtSprites)
-                    .addComponent(btnCargarArchivo))
-                .addGap(18, 18, 18)
+                    .addComponent(btnCargarArchivo)
+                    .addComponent(lblImagenesTipo1))
+                .addGap(5, 5, 5)
+                .addComponent(lblSelected, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblVida)
                     .addComponent(txfVida, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -265,11 +298,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                     .addComponent(lblNivelAparicion)
                     .addComponent(txfNivelAparicion, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(14, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(31, 31, 31)
-                    .addComponent(lblImagenesTipo1)
-                    .addContainerGap(209, Short.MAX_VALUE)))
         );
 
         btnCargarArchivo.getAccessibleContext().setAccessibleDescription("");
@@ -284,38 +312,39 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(rbtOpcion2)
-                            .addComponent(rbtOpcion1))
-                        .addGap(182, 182, 182)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(rbtOpcion3)
-                            .addComponent(rbtOpcion4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(rbtOpcion6)
-                            .addComponent(rbtOpcion5))
-                        .addGap(66, 66, 66))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblNombreComponente)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txfNombreComponente, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblTipoComponente)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblClasificacionComponente)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblNombreComponente)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txfNombreComponente, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(lblTipoComponente)
+                                        .addGap(27, 27, 27)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(rbtOpcion2)
+                                            .addComponent(rbtOpcion1))))
+                                .addGap(44, 44, 44)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblClasificacionComponente)
-                                        .addGap(44, 44, 44)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(rbtOpcion4)
+                                            .addComponent(rbtOpcion3))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(rbtOpcion5)
+                                            .addComponent(rbtOpcion6))
+                                        .addGap(14, 14, 14))
+                                    .addGroup(layout.createSequentialGroup()
                                         .addComponent(rbtDefensa)
                                         .addGap(80, 80, 80)
-                                        .addComponent(rbtZombie)))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())))
+                                        .addComponent(rbtZombie)))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(261, 261, 261)
                 .addComponent(btnGuardarComponente, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -337,17 +366,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(lblTipoComponente)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(rbtOpcion1)
-                        .addComponent(rbtOpcion3))
-                    .addComponent(rbtOpcion5))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(rbtOpcion2)
-                        .addComponent(rbtOpcion4))
-                    .addComponent(rbtOpcion6))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(rbtOpcion1)
+                            .addComponent(rbtOpcion5))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(rbtOpcion2)
+                            .addComponent(rbtOpcion6)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(rbtOpcion3)
+                        .addGap(18, 18, 18)
+                        .addComponent(rbtOpcion4)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -360,15 +391,89 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void rbtZombieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtZombieActionPerformed
         // TODO add your handling code here:
+        if (rbtOpcion5.isSelected() || rbtOpcion6.isSelected()){
+            rbtOpcion5.setSelected(false);
+            rbtOpcion6.setSelected(false);
+            rbtOpcion1.setSelected(true);
+        }
+        rbtOpcion5.setEnabled(false);
+        rbtOpcion6.setEnabled(false);
+        
     }//GEN-LAST:event_rbtZombieActionPerformed
 
+    private void deleteAllFilters(){
+        FileFilter filtros[] = fchRecursos.getChoosableFileFilters();
+        for (FileFilter filtro : filtros) {
+            fchRecursos.removeChoosableFileFilter(filtro);
+        }
+    }
+
+    private boolean isNumeric(String str){
+        try{
+            double numero = Double.parseDouble(str);
+        }catch (Exception e){
+            return false;
+        }
+        return true;
+    }
+
+    private void txfCheckInts(javax.swing.JTextField txf){
+        String txfText = txf.getText().trim();
+        if (!isNumeric(txfText))
+            if (txfText.length() > 0){
+                txf.setText(txfText.substring(0, txfText.length()-1));
+                txfCheckInts(txf);
+            }
+            else
+                txf.setText("");
+    }
+
     private void rbtSpritesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtSpritesActionPerformed
-        // TODO add your handling code here:
+        fchRecursos.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        deleteAllFilters();    
+        fchRecursos.setAcceptAllFileFilterUsed(false);
+        fchRecursos.setFileFilter(new FileNameExtensionFilter("Directorio", "dir"));
     }//GEN-LAST:event_rbtSpritesActionPerformed
 
     private void rbtGifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtGifActionPerformed
-        // TODO add your handling code here:
+        fchRecursos.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        deleteAllFilters();
+        fchRecursos.setAcceptAllFileFilterUsed(false);
+        fchRecursos.setFileFilter(new FileNameExtensionFilter("GIF", "gif"));
     }//GEN-LAST:event_rbtGifActionPerformed
+
+    private void rbtDefensaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtDefensaActionPerformed
+        rbtOpcion5.setEnabled(true);
+        rbtOpcion6.setEnabled(true);
+    }//GEN-LAST:event_rbtDefensaActionPerformed
+
+    private void btnCargarArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarArchivoActionPerformed
+        int resultadoFch = fchRecursos.showOpenDialog(this);
+        if (resultadoFch == JFileChooser.APPROVE_OPTION){
+            System.out.println("Archivo seleccionado: " + fchRecursos.getSelectedFile().getAbsolutePath());
+            lblSelected.setText(fchRecursos.getSelectedFile().getAbsolutePath());
+        }
+    }//GEN-LAST:event_btnCargarArchivoActionPerformed
+
+    private void txfVidaKeyReleased(java.awt.event.KeyEvent evt) {                                     
+        txfCheckInts(txfVida);
+    }                                   
+
+    private void txfGolpesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfGolpesKeyReleased
+        txfCheckInts(txfGolpes);
+    }//GEN-LAST:event_txfGolpesKeyReleased
+
+    private void txfNivelAparicionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfNivelAparicionKeyReleased
+        txfCheckInts(txfNivelAparicion);
+    }//GEN-LAST:event_txfNivelAparicionKeyReleased
+
+    private void txfNivelKeyReleased(java.awt.event.KeyEvent evt) {                                      
+        txfCheckInts(txfNivel);
+    }                                    
+
+    private void txfCamposKeyReleased(java.awt.event.KeyEvent evt) {                                       
+        txfCheckInts(txfCampos);
+    }                                     
 
     /**
      * @param args the command line arguments
@@ -408,7 +513,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCargarArchivo;
     private javax.swing.JButton btnGuardarComponente;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JFileChooser fchRecursos;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCampos;
     private javax.swing.JLabel lblClasificacionComponente;
@@ -418,6 +523,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblNivel;
     private javax.swing.JLabel lblNivelAparicion;
     private javax.swing.JLabel lblNombreComponente;
+    private javax.swing.JLabel lblSelected;
     private javax.swing.JLabel lblTipoComponente;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblVida;
