@@ -24,7 +24,10 @@ import com.mycompany.gestorcomponentes.Componentes.Zombies.ZombieAereo;
 import com.mycompany.gestorcomponentes.Componentes.Zombies.ZombieChoque;
 import com.mycompany.gestorcomponentes.Componentes.Zombies.ZombieDeContacto;
 import com.mycompany.gestorcomponentes.Componentes.Zombies.ZombieMedianoAlcance;
-
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
+// No import statements needed in this section
+import java.io.IOException;
 /**
  *
  * @author barra
@@ -696,13 +699,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         unableNonRange();
     }//GEN-LAST:event_rbtOpcion3ActionPerformed
 
-    private void rbtOpcion5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtOpcion5ActionPerformed
-        unableNonRange();
-    }//GEN-LAST:event_rbtOpcion5ActionPerformed
-
-    private void rbtOpcion6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtOpcion6ActionPerformed
-        unableNonRange();
-    }//GEN-LAST:event_rbtOpcion6ActionPerformed
+    public static void moveFile(File source, File destination) throws IOException {
+        if (source != null) {
+            Files.move(source.toPath(), destination.toPath(), StandardCopyOption.REPLACE_EXISTING);
+        }
+    }
 
     private void btnGuardarComponenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarComponenteActionPerformed
         // Se verifica que todos los campos estén llenos
@@ -715,29 +716,46 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         String tipoApariencia = rbtGif.isSelected() ? "GIF" : "SPRITES";
         ArrayList<String> sprites;
 
+        sprites = new ArrayList<>();
         // Se verifica que no exista un componente con el mismo nombre
         String currentDir = System.getProperty("user.dir");
-        if (!verifyName(currentDir + "/Componentes", Nombre)){
-            return;
-        }
+        currentDir = currentDir.replace("\\", "/");
+        // try {
+        //     if (!verifyName(currentDir + "/Componentes/", Nombre)) {
+        //         return;
+        //     }
+        // } catch (Exception e) {
+        //     System.out.println(e.getMessage());
+        //     JOptionPane.showMessageDialog(this, "Error al verificar el nombre del componente", "Error", JOptionPane.ERROR_MESSAGE);
+        //     return;
+        // }
+        String a = lblSelected.getText().trim().replace("\\", "/");
+        String h = currentDir + "/Componentes/assets/" + Nombre + ".png";
+        File from = new File(a);
+        File to = new File(h);
 
-        // Si el tipo de apariencia es GIF, se crea un ArrayList con el path del archivo seleccionado
-        if (tipoApariencia == "GIF"){
-            sprites = new ArrayList<>();
-            sprites.add(lblSelected.getText().trim());
-        }else{
-            // Si el tipo de apariencia es SPRITES, se crea un ArrayList con los paths de las imágenes en el directorio seleccionado
-            sprites = new ArrayList<>();
-            File dir = new File(lblSelected.getText().trim());
-            for (File file : dir.listFiles()) {
-                if (file.getName().endsWith(".png") || file.getName().endsWith(".jpg") || file.getName().endsWith(".jpeg"))
-                    sprites.add(file.getAbsolutePath());
+        try {
+            // Move the file to the assets folder
+            moveFile(from, to);
+
+            // Get all the files in the assets folder
+            File[] files = new File(currentDir + "/Componentes/assets").listFiles();
+
+            // Loop through the files and add the sprite names to the sprites array
+            if (files != null) {
+                for (File file : files) {
+                    if (file.isFile() && file.getName().endsWith(".png")) {
+                        sprites.add(file.getName());
+                    }
+        
+                }
             }
-            if (sprites.size() < 2){
-                JOptionPane.showMessageDialog(this, "No se encontraron imágenes o se encontraron menos de las necesarias en el directorio seleccionado", "Error", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-        }
+    }catch (IOException ex) {
+            ex.printStackTrace();
+    }
+    
+        
+        
         // Se crean las variables necesarias para crear el componente
         int vida = Integer.parseInt(txfVida.getText().trim());
         int cantidadGolpes = Integer.parseInt(txfGolpes.getText().trim());
