@@ -6,15 +6,15 @@ package com.mycompany.gestorcomponentes.Componentes.Defensa;
 
 import java.util.ArrayList;
 
-import com.mycompany.gestorcomponentes.Componentes.Aereo;
+import com.mycompany.gestorcomponentes.Componentes.AtaqueMultiplePrototipo;
 
 /**
  *
  * @author barra
  */
-public class DefensaAerea extends Aereo {
+public class DefensaAtaqueMultiplePrototipo extends AtaqueMultiplePrototipo {
     
-    public DefensaAerea(String nombre, String tipoApariencia, ArrayList<String> sprites, int vida, int cantidadGolpes, int nivel, int campos, int nivelAparicion){
+    public DefensaAtaqueMultiplePrototipo(String nombre, String tipoApariencia, ArrayList<String> sprites, int vida, int cantidadGolpes, int nivel, int campos, int nivelAparicion){
         super(nombre, tipoApariencia, sprites, vida, cantidadGolpes, nivel, campos, nivelAparicion);
     }
 }

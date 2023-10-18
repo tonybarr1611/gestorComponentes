@@ -4,17 +4,17 @@
  */
 package com.mycompany.gestorcomponentes.Componentes.Defensa;
 
-import java.util.ArrayList;
+import com.mycompany.gestorcomponentes.Componentes.DeContactoPrototipo;
 
-import com.mycompany.gestorcomponentes.Componentes.AtaqueMultiple;
+import java.util.ArrayList;
 
 /**
  *
  * @author barra
  */
-public class DefensaAtaqueMultiple extends AtaqueMultiple {
+public class DefensaDeContactoPrototipo extends DeContactoPrototipo{
     
-    public DefensaAtaqueMultiple(String nombre, String tipoApariencia, ArrayList<String> sprites, int vida, int cantidadGolpes, int nivel, int campos, int nivelAparicion){
+    public DefensaDeContactoPrototipo(String nombre, String tipoApariencia, ArrayList<String> sprites, int vida, int cantidadGolpes, int nivel, int campos, int nivelAparicion){
         super(nombre, tipoApariencia, sprites, vida, cantidadGolpes, nivel, campos, nivelAparicion);
     }
 }

@@ -11,12 +11,12 @@ import java.util.ArrayList;
  *
  * @author barra
  */
-public abstract class Componente implements Serializable{
+public abstract class ComponentePrototipo implements Serializable{
     private String nombre, tipoApariencia;
     private ArrayList<String> sprites;
     private int vida, cantidadGolpes, nivel, campos, nivelAparicion;
 
-    public Componente(String nombre, String tipoApariencia, ArrayList<String> sprites, int vida, int cantidadGolpes, int nivel, int campos, int nivelAparicion){
+    public ComponentePrototipo(String nombre, String tipoApariencia, ArrayList<String> sprites, int vida, int cantidadGolpes, int nivel, int campos, int nivelAparicion){
         this.nombre = nombre;
         this.tipoApariencia = tipoApariencia;
         this.sprites = sprites;

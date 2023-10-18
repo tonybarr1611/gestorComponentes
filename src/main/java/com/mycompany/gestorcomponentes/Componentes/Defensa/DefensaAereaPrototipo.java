@@ -4,17 +4,17 @@
  */
 package com.mycompany.gestorcomponentes.Componentes.Defensa;
 
-import com.mycompany.gestorcomponentes.Componentes.DeContacto;
-
 import java.util.ArrayList;
+
+import com.mycompany.gestorcomponentes.Componentes.AereoPrototipo;
 
 /**
  *
  * @author barra
  */
-public class DefensaDeContacto extends DeContacto{
+public class DefensaAereaPrototipo extends AereoPrototipo {
     
-    public DefensaDeContacto(String nombre, String tipoApariencia, ArrayList<String> sprites, int vida, int cantidadGolpes, int nivel, int campos, int nivelAparicion){
+    public DefensaAereaPrototipo(String nombre, String tipoApariencia, ArrayList<String> sprites, int vida, int cantidadGolpes, int nivel, int campos, int nivelAparicion){
         super(nombre, tipoApariencia, sprites, vida, cantidadGolpes, nivel, campos, nivelAparicion);
     }
 }

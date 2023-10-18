@@ -4,7 +4,7 @@
  */
 package com.mycompany.gestorcomponentes.Componentes;
 
-import com.mycompany.gestorcomponentes.Componente;
+import com.mycompany.gestorcomponentes.ComponentePrototipo;
 
 import java.util.ArrayList;
 
@@ -12,10 +12,10 @@ import java.util.ArrayList;
  *
  * @author barra
  */
-public class ChoqueImpacto extends Componente{
+public class ChoqueImpactoPrototipo extends ComponentePrototipo{
     private int rango;
     
-    public ChoqueImpacto(String nombre, String tipoApariencia, ArrayList<String> sprites, int vida, int cantidadGolpes, int nivel, int campos, int nivelAparicion, int rango){
+    public ChoqueImpactoPrototipo(String nombre, String tipoApariencia, ArrayList<String> sprites, int vida, int cantidadGolpes, int nivel, int campos, int nivelAparicion, int rango){
         super(nombre, tipoApariencia, sprites, vida, cantidadGolpes, nivel, campos, nivelAparicion);
         this.rango = rango;
     }

@@ -4,7 +4,7 @@
  */
 package com.mycompany.gestorcomponentes.Componentes.Zombies;
 
-import com.mycompany.gestorcomponentes.Componentes.ChoqueImpacto;
+import com.mycompany.gestorcomponentes.Componentes.ChoqueImpactoPrototipo;
 
 import java.util.ArrayList;
 
@@ -12,9 +12,9 @@ import java.util.ArrayList;
  *
  * @author barra
  */
-public class ZombieChoque extends ChoqueImpacto{
+public class ZombieChoquePrototipo extends ChoqueImpactoPrototipo{
     
-    public ZombieChoque(String nombre, String tipoApariencia, ArrayList<String> sprites, int vida, int cantidadGolpes, int nivel, int campos, int nivelAparicion, int rango){
+    public ZombieChoquePrototipo(String nombre, String tipoApariencia, ArrayList<String> sprites, int vida, int cantidadGolpes, int nivel, int campos, int nivelAparicion, int rango){
         super(nombre, tipoApariencia, sprites, vida, cantidadGolpes, nivel, campos, nivelAparicion, rango);
     }
 }

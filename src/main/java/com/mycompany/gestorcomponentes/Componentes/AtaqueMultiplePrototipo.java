@@ -4,7 +4,7 @@
  */
 package com.mycompany.gestorcomponentes.Componentes;
 
-import com.mycompany.gestorcomponentes.Componente;
+import com.mycompany.gestorcomponentes.ComponentePrototipo;
 
 import java.util.ArrayList;
 
@@ -12,9 +12,9 @@ import java.util.ArrayList;
  *
  * @author barra
  */
-public class AtaqueMultiple extends Componente{
+public class AtaqueMultiplePrototipo extends ComponentePrototipo{
     
-    public AtaqueMultiple(String nombre, String tipoApariencia, ArrayList<String> sprites, int vida, int cantidadGolpes, int nivel, int campos, int nivelAparicion){
+    public AtaqueMultiplePrototipo(String nombre, String tipoApariencia, ArrayList<String> sprites, int vida, int cantidadGolpes, int nivel, int campos, int nivelAparicion){
         super(nombre, tipoApariencia, sprites, vida, cantidadGolpes, nivel, campos, nivelAparicion);
     }
 }

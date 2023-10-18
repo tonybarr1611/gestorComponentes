@@ -4,7 +4,7 @@
 
 package com.mycompany.gestorcomponentes;
 
-import com.mycompany.gestorcomponentes.Componentes.Zombies.ZombieAereo;
+import com.mycompany.gestorcomponentes.Componentes.Zombies.ZombieAereoPrototipo;
 
 /**
  *
@@ -17,5 +17,5 @@ public class GestorComponentes {
         System.out.println("Hello World!");
     }
     
-    ZombieAereo za = new ZombieAereo("Zombie Aereo", "Aereo", null, 100, 1, 1, 1, 1);
+    ZombieAereoPrototipo za = new ZombieAereoPrototipo("Zombie Aereo", "Aereo", null, 100, 1, 1, 1, 1);
 }
