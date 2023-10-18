@@ -210,7 +210,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         rbtOpcion5.setText("Ataque múltiple");
         rbtOpcion5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtOpcion5ActionPerformed(evt);
             }
         });
 
@@ -218,7 +217,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         rbtOpcion6.setText("Bloques");
         rbtOpcion6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtOpcion6ActionPerformed(evt);
             }
         });
 
@@ -230,7 +228,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         rbtDefensa.setText("Defensa");
         rbtDefensa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtDefensaActionPerformed(evt);
+                rbtDefensaActionPerformed();
             }
         });
 
@@ -619,7 +617,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         rbtDefensa.setSelected(true);
     }
 
-    private void rbtDefensaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtDefensaActionPerformed
+    private void rbtDefensaActionPerformed() {//GEN-FIRST:event_rbtDefensaActionPerformed
         rbtOpcion5.setEnabled(true);
         rbtOpcion6.setEnabled(true);
     }//GEN-LAST:event_rbtDefensaActionPerformed
